@@ -12,15 +12,24 @@
 
 	}
 
+	$pdo = new PDO('mysql:host=localhost;port=3306;dbname=parking_system', 'root', '');
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		$sql = "select * from area where organizer_id='$organizer_id';";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		$alldata = $statement->fetchAll();
+
 
 ?>
+
 
 
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-<!-- Mirrored from grandetest.com/theme/findhouse-html/page-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Jun 2021 05:03:54 GMT -->
+<!-- Mirrored from grandetest.com/theme/findhouse-html/page-add-new-property.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Jun 2021 05:03:51 GMT -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -224,7 +233,7 @@
 						    <div class="dropdown-menu">
 						    	<div class="user_set_header">
 						    		<img class="float-left" src="images/team/e1.png" alt="e1.png">
-							    	<p>Ali Tufan <br><span class="address"><a href="https://grandetest.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f5e53564b4a595e517f58525e5653115c5052">[email&#160;protected]</a></span></p>
+							    	<p>Ali Tufan <br><span class="address"><a href="https://grandetest.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8cede0e5f8f9eaede2ccebe1ede5e0a2efe3e1">[email&#160;protected]</a></span></p>
 						    	</div>
 						    	<div class="user_setting_content">
 									<a class="dropdown-item active" href="#">My Profile</a>
@@ -378,14 +387,15 @@
 	    <ul class="sidebar-menu">
 	   		<li class="header"><img src="images/header-logo2.png" alt="header-logo2.png"> FindHouse</li>
 	   		<li class="title"><span>Main</span></li>
-	    	<li class="treeview"><a href="dashboard.php"><i class="flaticon-layers"></i><span> Dashboard</span></a>
+	    	<li class="treeview"><a href="page-dashboard.html"><i class="flaticon-layers"></i><span> Dashboard</span></a></li>
+	      	<li class="treeview"><a href="page-message.html"><i class="flaticon-envelope"></i><span> Message</span></a></li>
 	   		<li class="title"><span>Manage Listings</span></li>
 	      	<li class="treeview">
-		        <a href="page-my-properties.html"><i class="flaticon-home"></i> <span>My Garage</span><i class="fa fa-angle-down pull-right"></i></a>
+		        <a href="page-my-properties.html"><i class="flaticon-home"></i> <span>My Properties</span><i class="fa fa-angle-down pull-right"></i></a>
 		        <ul class="treeview-menu">
-		        	<li><a href="garage_create.php"><i class="fa fa-circle"></i> Create</a></li>
-		        	<li><a href="garage_list.php"><i class="fa fa-circle"></i> List</a></li>
-		        	
+		        	<li><a href="#"><i class="fa fa-circle"></i> General Elements</a></li>
+		        	<li><a href="#"><i class="fa fa-circle"></i> Advanced Elements</a></li>
+		        	<li><a href="#"><i class="fa fa-circle"></i> Editors</a></li>
 		        </ul>
 	      	</li>
 	      	<li><a href="page-my-favorites.html"><i class="flaticon-heart"></i> <span> My Favorites</span></a></li>
@@ -406,7 +416,7 @@
 
 	<!-- Our Dashbord -->
 	<section class="our-dashbord dashbord bgc-f7 pb50">
-		<div class="container-fluid">
+		<div class="container-fluid ovh">
 			<div class="row">
 				<div class="col-lg-3 col-xl-2 dn-992 pl0"></div>
 				<div class="col-lg-9 col-xl-10 maxw100flex-992">
@@ -416,7 +426,7 @@
 								<div class="dropdown">
 									<button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
 									<ul id="myDropdown" class="dropdown-content">
-										<li class="active"><a href="page-dashboard.html"><span class="flaticon-layers"></span> Dashboard</a></li>
+										<li><a href="page-dashboard.html"><span class="flaticon-layers"></span> Dashboard</a></li>
 										<li><a href="page-message.html"><span class="flaticon-envelope"></span> Message</a></li>
 										<li><a href="page-my-properties.html"><span class="flaticon-home"></span> My Properties</a></li>
 										<li><a href="page-my-favorites.html"><span class="flaticon-heart"></span> My Favorites</a></li>
@@ -424,7 +434,7 @@
 										<li><a href="page-my-review.html"><span class="flaticon-chat"></span> My Reviews</a></li>
 										<li><a href="page-my-packages.html"><span class="flaticon-box"></span> My Package</a></li>
 										<li><a href="page-my-profile.html"><span class="flaticon-user"></span> My Profile</a></li>
-										<li><a href="page-add-new-property.html"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
+										<li class="active"><a href="page-add-new-property.html"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
 										<li><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
 									</ul>
 								</div>
@@ -432,96 +442,57 @@
 						</div>
 						<div class="col-lg-12 mb10">
 							<div class="breadcrumb_content style2">
-								<h2 class="breadcrumb_title">Howdy, Ali!</h2>
-								<p>We are glad to see you again!</p>
+								<h2 class="breadcrumb_title">Added New Garage Information</h2>
+								
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
-							<div class="ff_one">
-								<div class="icon"><span class="flaticon-home"></span></div>
-								<div class="detais">
-									<div class="timer">37</div>
-									<p>All Properties</p>
-								</div>
-							</div>
+
+						<div  class="col-lg-12">
+								
+									<table class="table">
+												<thead class="thead-light">
+											    	<tr>
+											    		<th scope="col">SL.</th>
+											    		<th scope="col">Area</th>
+											    		<th scope="col">Address</th>
+											    		<th scope="col">Start Time</th>
+											    		<th scope="col">End Time</th>
+											    		<th scope="col">Date</th>
+											    		<th scope="col">Hour Rate</th>
+
+											    	</tr>
+												</thead>
+												<tbody>
+													<?php 
+
+													foreach($alldata as $key => $data)
+													{
+
+													?>
+														<tr>
+											    		<th><?= $key+1 ?></th>
+											    		<td><?= $data['area_name'] ?></td>
+											    		<td><?= $data['address'] ?></td>
+											    		<td><?= $data['start_time'] ?></td>
+											    		<td><?= $data['end_time'] ?></td>
+											    		<td><?= $data['ondate'] ?></td>
+											    		<td><?= $data['hour_rate'] ?></td>
+
+											    	</tr>
+											    	
+
+												<?php 
+													}
+
+													?>
+											    	
+												</tbody>
+											</table>
+
+						
 						</div>
-						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
-							<div class="ff_one style2">
-								<div class="icon"><span class="flaticon-view"></span></div>
-								<div class="detais">
-									<div class="timer">24</div>
-									<p>Total Views</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
-							<div class="ff_one style3">
-								<div class="icon"><span class="flaticon-chat"></span></div>
-								<div class="detais">
-									<div class="timer">12</div>
-									<p>Total Visitor Reviews</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
-							<div class="ff_one style4">
-								<div class="icon"><span class="flaticon-heart"></span></div>
-								<div class="detais">
-									<div class="timer">18</div>
-									<p>Total Favorites</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-7">
-							<div class="application_statics">
-								<h4>View Statistics</h4>
-								<div class="c_container"></div>
-							</div>
-						</div>
-						<div class="col-xl-5">
-							<div class="recent_job_activity">
-								<h4 class="title">Recent Activities</h4>
-								<div class="grid">
-									<ul>
-										<li class="list-inline-item"><div class="icon"><span class="flaticon-home"></span></div></li>
-										<li class="list-inline-item"><p>Your listing <strong>Luxury Family Home</strong> has been approved!.</p></li>
-									</ul>
-								</div>
-								<div class="grid">
-									<ul>
-										<li class="list-inline-item"><div class="icon"><span class="flaticon-chat"></span></div></li>
-										<li class="list-inline-item"><p>Kathy Brown left a review  on <strong>Renovated Apartment</strong></p></li>
-									</ul>
-								</div>
-								<div class="grid">
-									<ul>
-										<li class="list-inline-item"><div class="icon"><span class="flaticon-heart"></span></div></li>
-										<li class="list-inline-item"><p>Someone favorites your <strong>Gorgeous Villa Bay View</strong> listing!</p></li>
-									</ul>
-								</div>
-								<div class="grid">
-									<ul>
-										<li class="list-inline-item"><div class="icon"><span class="flaticon-home"></span></div></li>
-										<li class="list-inline-item"><p>Your listing <strong>Luxury Family Home</strong> has been approved!</p></li>
-									</ul>
-								</div>
-								<div class="grid">
-									<ul>
-										<li class="list-inline-item"><div class="icon"><span class="flaticon-chat"></span></div></li>
-										<li class="list-inline-item"><p>Kathy Brown left a review on <strong>Renovated Apartment</strong></p></li>
-									</ul>
-								</div>
-								<div class="grid mb0">
-									<ul class="pb0 mb0 bb_none">
-										<li class="list-inline-item"><div class="icon"><span class="flaticon-heart"></span></div></li>
-										<li class="list-inline-item"><p>Someone favorites your <strong>Gorgeous Villa Bay</strong> View listing!</p></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="row mt50">
-						<div class="col-lg-6 offset-lg-3">
+						<div class="col-lg-12">
 							<div class="copyright-widget text-center">
 								<p>© 2020 Find House. Made with love.</p>
 							</div>
@@ -540,8 +511,6 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.mmenu.all.js"></script>
 <script type="text/javascript" src="js/ace-responsive-menu.js"></script>
-<script type="text/javascript" src="js/chart.min.js"></script>
-<script type="text/javascript" src="js/chart-custome.js"></script>
 <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 <script type="text/javascript" src="js/snackbar.min.js"></script>
 <script type="text/javascript" src="js/simplebar.js"></script>
@@ -554,10 +523,13 @@
 <script type="text/javascript" src="js/slider.js"></script>
 <script type="text/javascript" src="js/timepicker.js"></script>
 <script type="text/javascript" src="js/wow.min.js"></script>
+<script type="text/javascript" src="js/smartuploader.js"></script>
 <script type="text/javascript" src="js/dashboard-script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAz77U5XQuEME6TpftaMdX0bBelQxXRlM&amp;callback=initMap" type="text/javascript"></script>
+<script type="text/javascript" src="js/googlemaps1.js"></script>
 <!-- Custom script for all pages --> 
 <script type="text/javascript" src="js/script.js"></script>
 </body>
 
-<!-- Mirrored from grandetest.com/theme/findhouse-html/page-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Jun 2021 05:03:58 GMT -->
+<!-- Mirrored from grandetest.com/theme/findhouse-html/page-add-new-property.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Jun 2021 05:03:54 GMT -->
 </html>
