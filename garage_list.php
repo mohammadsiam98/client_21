@@ -12,10 +12,22 @@
 
 	}
 
+	$pdo = new PDO('mysql:host=localhost;port=3306;dbname=parking_system', 'root', '');
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		$sql = "select * from area where organizer_id='$organizer_id';";
+		$statement = $pdo->prepare($sql);
+		$statement->execute();
+		$alldata = $statement->fetchAll();
+
+
 ?>
 
+
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html dir="ltr" lang="en">
 
 
 <head>
@@ -32,18 +44,17 @@
 <!-- Responsive stylesheet -->
 <link rel="stylesheet" href="css/responsive.css">
 <!-- Title -->
-<title>Dashboard</title>
+<title>Garage List</title>
 <!-- Favicon -->
 <link href="images/favicon.ico" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
 <link href="images/favicon.ico" sizes="128x128" rel="shortcut icon" />
-
 
 </head>
 <body>
 <div class="wrapper">
 	<div class="preloader"></div>
 
-		<!-- Main Header Nav -->
+	<!-- Main Header Nav -->
 	<header class="header-nav menu_style_home_one style2 menu-fixed main-menu">
 		<div class="container-fluid p0">
 		    <!-- Ace Responsive Menu -->
@@ -66,15 +77,20 @@
 		        <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
 		            <li>
 		                <a href="#"><span class="title">Dashboard</span></a>
+		               
+		                
 		            </li>
-
+		          
+		         
+		           
+		          
+	         
 			        </li>
 	                <li class="list-inline-item add_listing"><a href="garage_create.php"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
 		        </ul>
 		    </nav>
 		</div>
 	</header>
-
 
 	<!-- Main Header Nav For Mobile -->
 	<div id="page" class="stylehome1 h0">
@@ -92,6 +108,114 @@
 		</div><!-- /.mobile-menu -->
 		<nav id="menu" class="stylehome1">
 			<ul>
+				<li><span>Home</span>
+	                <ul>
+	                    <li><a href="index.html">Home 1</a></li>
+	                    <li><a href="index2.html">Home 2</a></li>
+	                    <li><a href="index3.html">Home 3</a></li>
+	                    <li><a href="index4.html">Home 4</a></li>
+	                    <li><a href="index5.html">Home 5</a></li>
+	                    <li><a href="index6.html">Home 6</a></li>
+	                    <li><a href="index7.html">Home 7</a></li>
+	                    <li><a href="index8.html">Home 8</a></li>
+	                    <li><a href="index9.html">Home 9</a></li>
+	                    <li><a href="index10.html">Home 10</a></li>
+	                </ul>
+				</li>
+				<li><span>Listing</span>
+					<ul>
+						<li><span>Listing Grid</span>
+							<ul>
+	                            <li><a href="page-listing-grid-v1.html">Grid v1</a></li>
+	                            <li><a href="page-listing-grid-v2.html">Grid v2</a></li>
+	                            <li><a href="page-listing-grid-v3.html">Grid v3</a></li>
+	                            <li><a href="page-listing-grid-v4.html">Grid v4</a></li>
+	                            <li><a href="page-listing-grid-v5.html">Grid v5</a></li>
+	                            <li><a href="page-listing-full-width-grid.html">Grid Fullwidth</a></li>
+							</ul>
+						</li>
+						<li><span>Listing Style</span>
+							<ul>
+	                            <li><a href="page-listing-parallax.html">Parallax Style</a></li>
+	                            <li><a href="page-listing-slider.html">Slider Style</a></li>
+	                            <li><a href="page-listing-map.html">Map Header</a></li>
+							</ul>
+						</li>
+						<li><span>Listing Half</span>
+							<ul>
+	                            <li><a href="page-listing-half-map-v1.html">Map V1</a></li>
+	                            <li><a href="page-listing-half-map-v2.html">Map V2</a></li>
+	                            <li><a href="page-listing-half-map-v3.html">Map V3</a></li>
+	                            <li><a href="page-listing-half-map-v4.html">Map V4</a></li>
+							</ul>
+						</li>
+						<li><span>Agent View</span>
+							<ul>
+	                            <li><a href="page-listing-agent-v1.html">Agent V1</a></li>
+	                            <li><a href="page-listing-agent-v2.html">Agent V2</a></li>
+	                            <li><a href="page-listing-agent-v3.html">Agent Details</a></li>
+							</ul>
+						</li>
+						<li><span>Agencies View</span>
+							<ul>
+	                            <li><a href="page-agencies-list-v1.html">Agencies V1</a></li>
+	                            <li><a href="page-agencies-list-v2.html">Agencies V2</a></li>
+	                            <li><a href="page-agencies-list-v3.html">Agencies Details</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><span>Property</span>
+					<ul>
+						<li><span>Property</span>
+							<ul>
+					            <li><a href="page-dashboard.html">Dashboard</a></li>
+			                    <li><a href="page-my-properties.html">My Properties</a></li>
+			                    <li><a href="page-add-new-property.html">Add New Property</a></li>
+							</ul>
+						</li>
+						<li><span>Listing Single</span>
+							<ul>
+	                            <li><a href="page-listing-single-v1.html">Single V1</a></li>
+	                            <li><a href="page-listing-single-v2.html">Single V2</a></li>
+	                            <li><a href="page-listing-single-v3.html">Single V3</a></li>
+	                            <li><a href="page-listing-single-v4.html">Single V4</a></li>
+	                            <li><a href="page-listing-single-v5.html">Single V5</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><span>Blog</span>
+					<ul>
+	                    <li><a href="page-blog-v1.html">Blog List 1</a></li>
+	                    <li><a href="page-blog-grid.html">Blog List 2</a></li>
+	                    <li><a href="page-blog-single.html">Single Post</a></li>
+					</ul>
+				</li>
+				<li><span>Pages</span>
+					<ul>
+						<li><span>Shop</span>
+							<ul>
+			                    <li><a href="page-shop.html">Shop</a></li>
+			                    <li><a href="page-shop-single.html">Shop Single</a></li>
+			                    <li><a href="page-shop-cart.html">Cart</a></li>
+			                    <li><a href="page-shop-checkout.html">Checkout</a></li>
+			                    <li><a href="page-shop-order.html">Order</a></li>
+							</ul>
+						</li>
+		                <li><a href="page-about.html">About Us</a></li>
+		                <li><a href="page-gallery.html">Gallery</a></li>
+		                <li><a href="page-faq.html">Faq</a></li>
+		                <li><a href="page-login.html">LogIn</a></li>
+		                <li><a href="page-compare.html">Membership</a></li>
+		                <li><a href="page-compare2.html">Membership 2</a></li>
+	                    <li><a href="page-register.html">Register</a></li>
+	                    <li><a href="page-service.html">Service</a></li>
+		                <li><a href="page-error.html">404 Page</a></li>
+		                <li><a href="page-terms.html">Terms and Conditions</a></li>
+		                <li><a href="page-ui-element.html">UI Elements</a></li>
+					</ul>
+				</li>
 				<li><a href="page-contact.html">Contact</a></li>
 				<li><a href="page-login.html"><span class="flaticon-user"></span> Login</a></li>
 				<li><a href="page-register.html"><span class="flaticon-edit"></span> Register</a></li>
@@ -118,13 +242,13 @@
 	   
 	   		
 		    <li><a href="page-my-profile.html"><i class="flaticon-user"></i> <span>My Profile</span></a></li>
-		    <li><a href="logout.php"><i class="flaticon-logout"></i> <span>Logout</span></a></li>
+		    <li><a href="page-login.html"><i class="flaticon-logout"></i> <span>Logout</span></a></li>
 	    </ul>
     </div>
 
 	<!-- Our Dashbord -->
 	<section class="our-dashbord dashbord bgc-f7 pb50">
-		<div class="container-fluid">
+		<div class="container-fluid ovh">
 			<div class="row">
 				<div class="col-lg-3 col-xl-2 dn-992 pl0"></div>
 				<div class="col-lg-9 col-xl-10 maxw100flex-992">
@@ -134,7 +258,7 @@
 								<div class="dropdown">
 									<button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
 									<ul id="myDropdown" class="dropdown-content">
-										<li class="active"><a href="page-dashboard.html"><span class="flaticon-layers"></span> Dashboard</a></li>
+										<li><a href="page-dashboard.html"><span class="flaticon-layers"></span> Dashboard</a></li>
 										<li><a href="page-message.html"><span class="flaticon-envelope"></span> Message</a></li>
 										<li><a href="page-my-properties.html"><span class="flaticon-home"></span> My Properties</a></li>
 										<li><a href="page-my-favorites.html"><span class="flaticon-heart"></span> My Favorites</a></li>
@@ -142,7 +266,7 @@
 										<li><a href="page-my-review.html"><span class="flaticon-chat"></span> My Reviews</a></li>
 										<li><a href="page-my-packages.html"><span class="flaticon-box"></span> My Package</a></li>
 										<li><a href="page-my-profile.html"><span class="flaticon-user"></span> My Profile</a></li>
-										<li><a href="page-add-new-property.html"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
+										<li class="active"><a href="page-add-new-property.html"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
 										<li><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
 									</ul>
 								</div>
@@ -150,15 +274,59 @@
 						</div>
 						<div class="col-lg-12 mb10">
 							<div class="breadcrumb_content style2">
-								<h2 class="breadcrumb_title">Hello! </h2>
-								<p>We are glad to see you again!</p>
+								<h2 class="breadcrumb_title">Added New Garage Information</h2>
+								
 							</div>
 						</div>
-					</div>
+
+						<div  class="col-lg-12">
+								
+									<table class="table">
+												<thead class="thead-light">
+											    	<tr>
+											    		<th scope="col">SL.</th>
+											    		<th scope="col">Area</th>
+											    		<th scope="col">Address</th>
+											    		<th scope="col">Start Time</th>
+											    		<th scope="col">End Time</th>
+											    		<th scope="col">Date</th>
+											    		<th scope="col">Hour Rate</th>
+
+											    	</tr>
+												</thead>
+												<tbody>
+													<?php 
+
+													foreach($alldata as $key => $data)
+													{
+
+													?>
+														<tr>
+											    		<th><?= $key+1 ?></th>
+											    		<td><?= $data['area_name'] ?></td>
+											    		<td><?= $data['address'] ?></td>
+											    		<td><?= $data['start_time'] ?></td>
+											    		<td><?= $data['end_time'] ?></td>
+											    		<td><?= $data['ondate'] ?></td>
+											    		<td><?= $data['hour_rate'] ?></td>
+
+											    	</tr>
+											    	
+
+												<?php 
+													}
+
+													?>
+											    	
+												</tbody>
+											</table>
+
+						
+						</div>
 					<div class="row mt50">
-						<div class="col-lg-6 offset-lg-3">
+						<div class="col-lg-12">
 							<div class="copyright-widget text-center">
-								<p></p>
+								<p>.</p>
 							</div>
 						</div>
 					</div>
@@ -175,8 +343,6 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.mmenu.all.js"></script>
 <script type="text/javascript" src="js/ace-responsive-menu.js"></script>
-<script type="text/javascript" src="js/chart.min.js"></script>
-<script type="text/javascript" src="js/chart-custome.js"></script>
 <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 <script type="text/javascript" src="js/snackbar.min.js"></script>
 <script type="text/javascript" src="js/simplebar.js"></script>
@@ -189,7 +355,10 @@
 <script type="text/javascript" src="js/slider.js"></script>
 <script type="text/javascript" src="js/timepicker.js"></script>
 <script type="text/javascript" src="js/wow.min.js"></script>
+<script type="text/javascript" src="js/smartuploader.js"></script>
 <script type="text/javascript" src="js/dashboard-script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAz77U5XQuEME6TpftaMdX0bBelQxXRlM&amp;callback=initMap" type="text/javascript"></script>
+<script type="text/javascript" src="js/googlemaps1.js"></script>
 <!-- Custom script for all pages --> 
 <script type="text/javascript" src="js/script.js"></script>
 </body>

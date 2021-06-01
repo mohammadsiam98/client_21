@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-<!-- Mirrored from grandetest.com/theme/findhouse-html/index4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Jun 2021 05:03:00 GMT -->
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,12 +20,6 @@
 <link href="images/favicon.ico" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
 <link href="images/favicon.ico" sizes="128x128" rel="shortcut icon" />
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 <div class="wrapper">
@@ -198,7 +192,18 @@
 		            <li class="last">
 		                <a href="page-contact.html"><span class="title">Contact</span></a>
 		            </li>
-	                <li class="list-inline-item list_s"><a href="#" class="btn flaticon-user" data-toggle="modal" data-target=".bd-example-modal-lg"> <span class="dn-lg">Login/Register</span></a></li>
+
+
+	       <li class="list-inline-item list_s"><a href="#" class="btn flaticon-user" data-toggle="modal" data-target=".bd-example-modal-lg"> <span class="dn-lg">Login/Register</span></a></li>
+
+
+
+
+
+
+
+
+
 	                <li class="list-inline-item add_listing"><a href="page-add-new-property.html"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
 		        </ul>
 		    </nav>
@@ -2035,5 +2040,5 @@
 <script type="text/javascript" src="js/script.js"></script>
 </body>
 
-<!-- Mirrored from grandetest.com/theme/findhouse-html/index4.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Jun 2021 05:03:11 GMT -->
+
 </html>
